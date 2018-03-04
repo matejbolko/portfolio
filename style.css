@@ -27,15 +27,13 @@ body {
 .logo {
   grid-row: 1;
   grid-column: 1;
-  height: 100%;
-  width: 100%;
-  align-self: left;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .name {
   grid-row: 1;
   grid-column: span 2;
-  justify-self: end;
   text-align: right;
 }
 
@@ -53,7 +51,6 @@ body {
 .sidebar__h1{
   grid-area: sidebar__h1;
   align-self: end;
-  margin-bottom: 0;
 }
 
 .item{
