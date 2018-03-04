@@ -1,0 +1,90 @@
+html {
+  /* border-box box model allows us to add padding and border to our elements without increasing their size */
+  box-sizing: border-box;
+  color: #444;
+  font-family: Cambria, Cochin, Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  }
+
+body {
+  background-color: rgba(184,184,184,0.7);
+  margin: 50px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 150px 10px 500px 100px auto;
+  grid-gap: 10px;
+  grid-template-areas:
+    "header header header"
+    "line line line"
+    "main main main"
+    "sidebar__h1 sidebar__h1 sidebar__h1"
+    "sidebar sidebar sidebar"
+}
+
+.logo {
+  grid-row: 1;
+  grid-column: 1;
+  height: 100%;
+  width: 100%;
+  align-self: left;
+}
+
+.name {
+  grid-row: 1;
+  grid-column: span 2;
+  justify-self: end;
+  text-align: right;
+}
+
+.line {
+  grid-area: line;
+  border-top: 3px solid #2d3c49;
+}
+
+.main {
+  grid-area: main;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.sidebar__h1{
+  grid-area: sidebar__h1;
+  align-self: end;
+  margin-bottom: 0;
+}
+
+.item{
+  padding: 10px;
+  display: grid;
+  grid-template-rows: auto 50px 30px;
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  grid-template-areas:
+  "sidebar__artwork"
+  "sidebar__title"
+  "sidebar__desc"
+}
+
+.item__artwork {
+  width: 100%;
+}
+
+.item__title {
+  grid-area: sidebar__title;
+  text-align: center;
+}
+
+.item__desc {
+  grid-area: sidebar__desc;
+  text-align: center;
+}
+
+.main_background {
+  grid-area: main;
+  background-color: #e2e3eb;
+background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23303346' fill-opacity='0.51'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
