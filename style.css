@@ -150,6 +150,11 @@ body {
       height: auto;
     }
 
+    .main_background {
+      grid-area: main;
+      height: auto;
+    }
+
     .logo {
       display: none;
     }
@@ -164,6 +169,7 @@ body {
 
     .item {
       background-color: rgba(184,184,184,0.8);
+      border-radius: 5px;
     }
 
     .item:nth-of-type(1) {
