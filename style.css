@@ -114,6 +114,10 @@ body {
   }
 
   @media screen and (max-width: 1000px) {
+    body {
+      margin: 5%;
+    }
+    
     .wrapper {
       grid-template-rows: 120px 10px 1fr 100px auto;
     }
