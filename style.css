@@ -12,6 +12,64 @@ body {
   margin: 50px;
 }
 
+.logo {
+  height: 100%;
+  max-width: 100%;
+  float: left;
+}
+
+.owner__name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+  font-weight: bolder;
+  font-variant: small-caps;
+  margin: 0 0;
+  text-align: right;
+}
+
+.owner__sub {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1em;
+  font-weight: bolder;
+  margin-bottom: 50px;
+  text-align: right;
+}
+
+.main {
+  background-color: #e2e3eb;
+  /* http://www.heropatterns.com/ */
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23303346' fill-opacity='0.51'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.main__img {
+  max-height: 500px;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item {
+  background-color: rgba(184,184,184,0.8);
+  border-radius: 5px;
+}
+
+.item__artwork {
+  width: 100%;
+}
+
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-variant: small-caps;
+}
+
+
 @supports (display: grid) {
   .wrapper {
     display: grid;
@@ -22,36 +80,19 @@ body {
       "header header header"
       "line line line"
       "main main main"
-      "sidebar__h1 sidebar__h1 sidebar__h1"
-      "sidebar sidebar sidebar"
+      "item-h1 item-h1 item-h1"
+      "items items items"
   }
 
   .logo {
     grid-row: 1;
     grid-column: 1;
-    height: 100%;
-    max-width: 100%;
   }
 
-  .name {
+  .owner {
     grid-row: 1;
     grid-column: span 2;
     text-align: right;
-  }
-
-  .logo__name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.5em;
-    font-weight: bolder;
-    font-variant: small-caps;
-    margin: 0 0;
-  }
-
-  .logo__sub {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1em;
-    font-weight: bolder;
-
   }
 
   .line {
@@ -59,15 +100,17 @@ body {
     border-top: 3px solid #2d3c49;
   }
 
-  .main {
+  .main__img {
     grid-area: main;
-    margin: 0 auto;
-    height: 100%;
   }
 
-  .sidebar__h1 {
-    grid-area: sidebar__h1;
-    align-self: end;
+  .main {
+    grid-area: main;
+  }
+
+  .item-h1 {
+    grid-area: item-h1;
+    align-self: flex-end;
   }
 
   .item {
@@ -77,40 +120,19 @@ body {
     align-items: center;
     justify-content: center;
     grid-template-areas:
-      "sidebar__artwork"
-      "sidebar__title"
-      "sidebar__desc"
-  }
-
-  .item__artwork {
-    width: 100%;
+      "item__artwork"
+      "item__title"
+      "item__desc"
   }
 
   .item__title {
-    grid-area: sidebar__title;
+    grid-area: item__title;
     text-align: center;
   }
 
   .item__desc {
-    grid-area: sidebar__desc;
+    grid-area: item__desc;
     text-align: center;
-  }
-
-  .main_background {
-    grid-area: main;
-    background-color: #e2e3eb;
-    /* http://www.heropatterns.com/ */
-    background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23303346' fill-opacity='0.51'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  h1 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.5em;
-  }
-
-  h2 {
-    font-family: 'Raleway', sans-serif;
-    font-variant: small-caps;
   }
 
   @media screen and (max-width: 1000px) {
@@ -122,14 +144,14 @@ body {
       grid-template-rows: 120px 10px 1fr 100px auto;
     }
     
-    .main {
+    .main__img {
       display: block;
       max-width: 100%;
       height: auto;
     }
   }
 
-  @media screen and (max-width: 514px) {
+  @media screen and (max-width: 600px) {
     body {
       margin: 3%;
     }
@@ -142,19 +164,19 @@ body {
         "header"
         "line"
         "main"
-        "sidebar__h1"
-        "sidebar"
-        "sidebar"
-        "sidebar"
+        "item-h1"
+        "items"
+        "items"
+        "items"
     }
 
-    .main {
+    .main__img {
       grid-area: main;
       width: auto;
       height: auto;
     }
 
-    .main_background {
+    .main {
       grid-area: main;
       height: auto;
     }
@@ -162,18 +184,13 @@ body {
     .logo {
       display: none;
     }
-    .logo__sub {
+    .owner__sub {
       display: none;
     }
 
-    .sidebar__h1 {
-      grid-area: sidebar__h1;
+    .item-h1 {
+      grid-area: item-h1;
       margin: 0 0;
-    }
-
-    .item {
-      background-color: rgba(184,184,184,0.8);
-      border-radius: 5px;
     }
 
     .item:nth-of-type(1) {
