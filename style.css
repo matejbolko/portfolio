@@ -115,7 +115,7 @@ h2 {
 
   .item {
     display: grid;
-    grid-template-rows: auto 50px 30px;
+    grid-template-rows: 1fr 50px 50px;
     grid-gap: 10px;
     align-items: center;
     justify-content: center;
@@ -123,6 +123,10 @@ h2 {
       "item__artwork"
       "item__title"
       "item__desc"
+  }
+
+  .item__artwork {
+    grid-area: item__artwork;
   }
 
   .item__title {
@@ -151,7 +155,7 @@ h2 {
     }
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 700px) {
     body {
       margin: 3%;
     }
