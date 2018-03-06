@@ -58,6 +58,13 @@ body {
   width: 100%;
 }
 
+.item__title {
+  padding: 5px 5px 5px 5px;
+}
+
+.item__desc {
+  padding: 5px 5px 5px 5px;
+}
 
 h1 {
   font-family: 'Raleway', sans-serif;
