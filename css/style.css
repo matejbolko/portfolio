@@ -12,22 +12,37 @@ body {
   margin: 50px;
 }
 
-.logo {
-  height: 100%;
-  max-width: 100%;
-  float: left;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.owner__name {
+.header {
+  border-bottom: 3px solid rgb(50,50,50);
+}
+
+.header__logo {
+  max-width: 100%;
+  height: 100px;
+  float: left;
+  margin: 10px;
+}
+
+.header__content {
+  text-align: right;
+}
+
+.header__title {
   font-family: 'Raleway', sans-serif;
   font-size: 2.5em;
   font-weight: bolder;
   font-variant: small-caps;
-  margin: 0 0;
+  margin: 0;
   text-align: right;
 }
 
-.owner__sub {
+.header__sub {
   font-family: 'Raleway', sans-serif;
   font-size: 1em;
   font-weight: bolder;
@@ -49,6 +64,10 @@ body {
   margin-right: auto;
 }
 
+.item-h1 {
+  font-size: 2em;
+}
+
 .item {
   background-color: rgba(184,184,184,0.8);
   border-radius: 5px;
@@ -59,11 +78,16 @@ body {
 }
 
 .item__title {
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
 }
 
 .item__desc {
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
+}
+
+figure {
+  margin: 10px 0px ;
+  padding: 0;
 }
 
 h1 {
@@ -80,59 +104,51 @@ h2 {
 @supports (display: grid) {
   .wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 120px 10px 500px 100px auto;
-    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 120px auto auto;
     grid-template-areas:
-      "header header header"
-      "line line line"
-      "main main main"
-      "item-h1 item-h1 item-h1"
-      "items items items"
+      "header"
+      "main"
+      "items";
   }
 
-  .logo {
-    grid-row: 1;
-    grid-column: 1;
-  }
-
-  .owner {
-    grid-row: 1;
-    grid-column: span 2;
-    text-align: right;
-  }
-
-  .line {
-    grid-area: line;
-    border-top: 3px solid #2d3c49;
-  }
-
-  .main__img {
-    grid-area: main;
+  .header {
+    grid-area: header;
   }
 
   .main {
     grid-area: main;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .items {
+    grid-area: items;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
   }
 
   .item-h1 {
-    grid-area: item-h1;
-    align-self: flex-end;
+    grid-column: 1 / span 3;
   }
 
   .item {
     display: grid;
-    grid-template-rows: 1fr 50px 50px;
-    grid-gap: 10px;
+    grid-template-rows: auto 50px 1fr;
     align-items: center;
     justify-content: center;
     grid-template-areas:
       "item__artwork"
       "item__title"
-      "item__desc"
+      "item__desc";
   }
 
+
   .item__artwork {
+    margin-top: -10px;
     grid-area: item__artwork;
   }
 
@@ -146,22 +162,6 @@ h2 {
     text-align: center;
   }
 
-  @media screen and (max-width: 1000px) {
-    body {
-      margin: 20px;
-    }
-    
-    .wrapper {
-      grid-template-rows: 120px 10px 1fr 100px auto;
-    }
-    
-    .main__img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
   @media screen and (max-width: 700px) {
     body {
       margin: 3%;
@@ -169,15 +169,11 @@ h2 {
 
     .wrapper {
       grid-template-columns: 1fr;
-      grid-template-rows: 50px 10px auto 100px repeat(3, 1fr);
+      grid-template-rows: 70px auto 1fr;
       grid-auto-flow: column;
       grid-template-areas:
         "header"
-        "line"
         "main"
-        "item-h1"
-        "items"
-        "items"
         "items"
     }
 
@@ -192,16 +188,24 @@ h2 {
       height: auto;
     }
 
-    .logo {
+    .item-h1 {
+      margin-bottom: 0px;
+      align-self: flex-end;
+    }
+
+    .header__logo {
       display: none;
     }
-    .owner__sub {
+    .header__sub {
       display: none;
     }
 
-    .item-h1 {
-      grid-area: item-h1;
-      margin: 0 0;
+    .items {
+      grid-area: items;
+      display: grid;
+      grid-template-rows: 100px 1fr 1fr 1fr;
+      grid-template-columns: 1fr;
+      grid-row-gap: 10px;
     }
 
     .item:nth-of-type(1) {
