@@ -133,6 +133,7 @@ h2 {
 
   .item-h1 {
     grid-column: 1 / span 3;
+    align-self: flex-end;
   }
 
   .item {
@@ -190,7 +191,6 @@ h2 {
 
     .item-h1 {
       margin-bottom: 0px;
-      align-self: flex-end;
     }
 
     .header__logo {
